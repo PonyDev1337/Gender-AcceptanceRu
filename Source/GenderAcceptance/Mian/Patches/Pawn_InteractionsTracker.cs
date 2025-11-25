@@ -19,7 +19,7 @@ public static class Pawn_InteractionsTracker
         if (!__result || !recipient.RaceProps.Humanlike || !___pawn.RaceProps.Humanlike)
             return;
         if (___pawn.FindsExtraordinarilyAttractive(recipient))
-            ((Chaser_Need)___pawn.needs?.TryGetNeed(GADefOf.Chaser_Need))?.GainNeedFromInteraction();
+            ((Need_Chaser)___pawn.needs?.TryGetNeed(GADefOf.Need_Chaser))?.GainNeedFromInteraction();
 
         var smallTalk = DefDatabase<InteractionDef>.GetNamedSilentFail("Rimpsyche_Smalltalk");
         var conversation = DefDatabase<InteractionDef>.GetNamedSilentFail("Rimpsyche_Conversation");

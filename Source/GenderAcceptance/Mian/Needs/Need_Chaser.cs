@@ -15,7 +15,7 @@ public enum ChaserCategory : byte
     Aching
 }
 
-public class Chaser_Need : Need
+public class Need_Chaser : Need
 {
     private static readonly float[] Thresholds = new float[4]
     {
@@ -27,7 +27,7 @@ public class Chaser_Need : Need
 
     private int lastGainTick = -999;
 
-    public Chaser_Need(Pawn pawn)
+    public Need_Chaser(Pawn pawn)
         : base(pawn)
     {
         threshPercents = new List<float>(Thresholds);

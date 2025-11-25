@@ -29,8 +29,8 @@
 
   <!--Misc-->
   <ThoughtDef>
-    <defName>Chaser_Need_Thought</defName>
-    <workerClass>GenderAcceptance.Mian.ThoughtWorkers.Chaser_Need</workerClass>
+    <defName>Need_Chaser_Thought</defName>
+    <workerClass>GenderAcceptance.Mian.ThoughtWorkers.Need_Chaser</workerClass>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>

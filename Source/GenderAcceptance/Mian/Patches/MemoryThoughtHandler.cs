@@ -36,7 +36,7 @@ public static class MemoryThoughtHandler
 
             if (__instance.pawn.FindsExtraordinarilyAttractive(otherPawn))
             {
-                ((Chaser_Need)__instance.pawn.needs?.TryGetNeed(GADefOf.Chaser_Need))?.GainNeedFromSex();
+                ((Need_Chaser)__instance.pawn.needs?.TryGetNeed(GADefOf.Need_Chaser))?.GainNeedFromSex();
                 otherPawn.needs?.mood?.thoughts?.memories?.TryGainMemory(GADefOf.Dehumanized, __instance.pawn);
             }
         }

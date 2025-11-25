@@ -1,7 +1,7 @@
 ﻿<Defs>
     <NeedDef>
-        <defName>Chaser_Need</defName>
-        <needClass>GenderAcceptance.Mian.Needs.Chaser_Need</needClass>
+        <defName>Need_Chaser</defName>
+        <needClass>GenderAcceptance.Mian.Needs.Need_Chaser</needClass>
         <label>Trans Intimacy</label>
         <description>Chasers desire some intimacy with a trans person from time to time through social interactions or lovin'. Without a trans person in the colony, they may become extremely unhappy.</description>
         <minIntelligence>Humanlike</minIntelligence>

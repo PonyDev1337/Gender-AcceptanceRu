@@ -92,7 +92,7 @@
     <Compile Include="Mian\JoyGivers\Transvestigate.cs" />
     <Compile Include="Mian\MentalStateWorkers\TransvestigateSpree.cs" />
     <Compile Include="Mian\MentalStates\TransvestigateSpree.cs" />
-    <Compile Include="Mian\Needs\Chaser_Need.cs" />
+    <Compile Include="Mian\Needs\Need_Chaser.cs" />
     <Compile Include="Mian\Patches\Faction.cs" />
     <Compile Include="Mian\Patches\GenderUtilityPatch.cs" />
     <Compile Include="Mian\Patches\GrammarUtilityPatch.cs" />
@@ -107,7 +107,7 @@
     <Compile Include="Mian\Patches\PawnPatch.cs" />
     <Compile Include="Mian\Patches\Pawn_InteractionsTracker.cs" />
     <Compile Include="Mian\Patches\Pawn_RelationsTracker.cs" />
-    <Compile Include="Mian\ThoughtWorkers\Chaser_Need.cs" />
+    <Compile Include="Mian\ThoughtWorkers\Need_Chaser.cs" />
     <Compile Include="Mian\ThoughtWorkers\InternalTransphobia.cs" />
     <Compile Include="Mian\ThoughtWorkers\IsCisphobic.cs" />
     <Compile Include="Mian\ThoughtWorkers\IsTransgenderNegative.cs" />

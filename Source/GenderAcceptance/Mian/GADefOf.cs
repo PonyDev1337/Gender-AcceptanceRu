@@ -25,7 +25,7 @@ public static class GADefOf
     public static TraitDef Transphobic;
     public static TraitDef Cisphobic;
 
-    public static NeedDef Chaser_Need;
+    public static NeedDef Need_Chaser;
 
     public static RulePackDef Believes_Is_Trans;
     public static RulePackDef Chaser_Found_Out;
@@ -43,7 +43,7 @@ public static class GADefOf
     public static ThoughtDef Transphobia;
 
     public static ThoughtDef Similar;
-    public static ThoughtDef Chaser_Need_Thought;
+    public static ThoughtDef Need_Chaser_Thought;
 
     public static ThoughtDef Accidental_Misgender;
 
