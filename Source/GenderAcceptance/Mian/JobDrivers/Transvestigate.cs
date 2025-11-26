@@ -33,7 +33,8 @@ public class Transvestigate : JobDriver
     {
         return Toils_General.Do((Action)(() =>
         {
-            pawn.AttemptTransvestigate(Target);
+            if(pawn.CanTransvestigate(true))
+                pawn.Transvestigate(Target, 0.01f);
             if (pawn.MentalState is TransvestigateSpree mentalState2)
             {
                 mentalState2.lastTransvestigatedTicks = Find.TickManager.TicksGame;

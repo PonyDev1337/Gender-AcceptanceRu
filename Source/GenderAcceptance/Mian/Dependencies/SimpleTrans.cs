@@ -6,6 +6,7 @@ namespace GenderAcceptance.Mian.Dependencies;
 
 public class SimpleTrans : TransDependency
 {
+
     public override GenderIdentity GetCurrentIdentity(Pawn pawn)
     {
         if (pawn.health?.hediffSet?.HasHediff(SimpleTransPregnancyUtility.transDef) ?? false)

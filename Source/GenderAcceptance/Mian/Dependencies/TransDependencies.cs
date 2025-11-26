@@ -16,8 +16,15 @@ public interface ITransDependency
     ///     Retrieves whether the pawn is transgender or cisgender
     /// </summary>
     /// <param name="pawn">The pawn to check</param>
-    /// <returns>The pawn's gender identity</returns>
+    /// <returns>The pawn's trans status</returns>
     public GenderIdentity GetCurrentIdentity(Pawn pawn);
+    
+    /// <summary>
+    ///     Gets the pawn's gender identity (not their sex)
+    /// </summary>
+    /// <param name="pawn">The pawn</param>
+    /// <returns>The pawn's gender identity</returns>
+    public ActualGender GetActualGender(Pawn pawn);
 
     /// <summary>
     ///     Determines whether the pawn's genitalia matches up with their gender identity

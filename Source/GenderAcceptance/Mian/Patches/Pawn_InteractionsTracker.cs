@@ -30,7 +30,8 @@ public static class Pawn_InteractionsTracker
         {
             var multiplier = intDef == conversation ? 2f : 1f;
             
-            ___pawn.AttemptTransvestigate(recipient, 0.001f * multiplier, 0.005f * multiplier);
+            // if(___pawn.CanTransvestigate())
+                // ___pawn.Transvestigate(recipient, 0.005f * multiplier);
 
             var transgenders = ___pawn.GetTransgenderKnowledges(false)
                 .Where(knowledge => knowledge.BelievesTheyAreTrans() && knowledge.Pawn != recipient).ToList();

@@ -10,6 +10,8 @@ public class Transvestigate : JoyGiver
 {
     public override Job TryGiveJob(Pawn pawn)
     {
+        if (!pawn.CanTransvestigate())
+            return null;
         if (!pawn.GetTransphobicStatus().GenerallyTransphobic)
             return null;
         if (PawnUtility.WillSoonHaveBasicNeed(pawn))
@@ -18,7 +20,7 @@ public class Transvestigate : JoyGiver
         TransvestigateUtility.GetInvestigatingCandidatesFor(pawn, candidates);
         if (!candidates.Any())
             return null;
-
+        
         return JobMaker.MakeJob(def.jobDef, candidates.RandomElement());
     }
 

@@ -20,6 +20,7 @@ public class Transvestigate : InteractionWorker
         letterDef = null;
         lookTargets = null;
 
-        initiator.AttemptTransvestigate(recipient);
+        if(initiator.CanTransvestigate())
+            initiator.Transvestigate(recipient);
     }
 }

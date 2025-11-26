@@ -117,6 +117,14 @@ public static class GenderUtility
         return TransDependencies.TransLibrary.GetCurrentIdentity(pawn);
     }
 
+    public static ActualGender GetActualGender(this Pawn pawn)
+    {
+        if (pawn.IsEnbyBySexTerm())
+            return ActualGender.Enby;
+
+        return TransDependencies.TransLibrary.GetActualGender(pawn);
+    }
+
     /// <summary>
     ///     Determines whether the pawn's genitalia matches up with their gender identity. Defaults to true for androgynous folks
     /// </summary>

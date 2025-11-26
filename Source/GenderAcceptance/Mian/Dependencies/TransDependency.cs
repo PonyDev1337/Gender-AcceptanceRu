@@ -7,6 +7,10 @@ namespace GenderAcceptance.Mian.Dependencies;
 
 public abstract class TransDependency : ITransDependency
 {
+    public virtual ActualGender GetActualGender(Pawn pawn)
+    {
+        return pawn.gender == Gender.Male ? ActualGender.Man : ActualGender.Woman;
+    }
     public abstract GenderIdentity GetCurrentIdentity(Pawn pawn);
     public abstract bool AppearsToHaveMatchingGenitalia(Pawn pawn);
 

@@ -20,6 +20,26 @@ public class Dysphoria : TransDependency
         DefOfDysphoria.androgyneGender
     };
 
+    public override ActualGender GetActualGender(Pawn pawn)
+    {
+        if (pawn.GetCurrentIdentity() == GenderIdentity.Cisgender)
+            return base.GetActualGender(pawn);
+
+        var traits = pawn.story?.traits;
+
+        if (traits != null)
+        {
+            if (traits.HasTrait(DefOfDysphoria.maleGender))
+                return ActualGender.Man;
+            if (traits.HasTrait(DefOfDysphoria.femaleGender))
+                return ActualGender.Woman;
+            if (traits.HasTrait(DefOfDysphoria.androgyneGender))
+                return ActualGender.Enby;   
+        }
+
+        return base.GetActualGender(pawn);
+    }
+
     public override GenderIdentity GetCurrentIdentity(Pawn pawn)
     {
         foreach (var gender in genders)

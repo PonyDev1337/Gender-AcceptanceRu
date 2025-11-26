@@ -61,10 +61,23 @@ public static class TransKnowledgeManager
         };
 
     private static readonly Dictionary<Pawn, List<TransKnowledgeTracker>> believedToBeTransgender = new();
+    private static readonly Dictionary<Pawn, int> lastTranvestigatedTicks = new();
+    private static readonly int tickCooldown = 30000;
 
     public static void SetTransKnowledges(this Pawn pawn, List<TransKnowledgeTracker> knowledges)
     {
         believedToBeTransgender[pawn] = knowledges;
+    }
+
+    public static void SetLastTransvestigatedTicks(this Pawn pawn, int ticks)
+    {
+        lastTranvestigatedTicks[pawn] = ticks;
+    }
+
+    public static int GetLastTransvestigatedTicks(this Pawn pawn)
+    {
+        lastTranvestigatedTicks.TryGetValue(pawn, out var ticks);
+        return ticks;
     }
 
     public static List<TransKnowledgeTracker> GetModifiableTransgenderKnowledge(this Pawn pawn, bool cleanReferences,
@@ -200,18 +213,24 @@ public static class TransKnowledgeManager
         return knowledge;
     }
 
-    public static void AttemptTransvestigate(this Pawn initiator, Pawn recipient, float normalChance = 0.01f,
-        float appearanceChance = 0.01f)
+    public static bool CanTransvestigate(this Pawn pawn, bool overrideCooldown=false)
+    {
+        return overrideCooldown || Find.TickManager.TicksGame - pawn.GetLastTransvestigatedTicks() >= tickCooldown;
+    }
+
+    public static void Transvestigate(this Pawn initiator, Pawn recipient, float appearanceChance = 0.005f)
     {
         if (initiator.GetKnowledgeOnPawn(recipient).transvestigate)
             return;
         if (!recipient.RaceProps.Humanlike)
             return;
+        lastTranvestigatedTicks[initiator] = Find.TickManager.TicksGame;
         var relative = recipient.CalculateRelativeAppearanceFromIdentity();
-        var appearanceRoll = Rand.Chance(appearanceChance - relative / 5 *
-            ((initiator.story?.traits?.HasTrait(GADefOf.Chaser) ?? false) && relative < 0 ? 1.5f : 1));
-        var normalRoll = Rand.Chance(normalChance);
-        if (appearanceRoll || normalRoll)
+        appearanceChance -= relative / 5 *
+            ((initiator.story?.traits?.HasTrait(GADefOf.Chaser) ?? false) && relative < 0 ? 1.5f : 1);
+        var appearanceRoll = Rand.Chance(appearanceChance);
+        Helper.Debug($"{initiator} tried transvestigating {recipient}. Appearance: {appearanceChance}, Success: {appearanceRoll}");
+        if (appearanceRoll)
         {
             var rules = new List<Rule>();
             if (appearanceRoll)
