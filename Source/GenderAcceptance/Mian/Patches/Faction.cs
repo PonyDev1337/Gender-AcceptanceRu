@@ -16,6 +16,8 @@ public static class Faction
 
         foreach (var pawn in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonists)
         {
+            if (pawn == p)
+                continue;
             if (pawn.Faction != __instance)
                 continue;
             if (pawn.BelievesIsTrans(joinerPawn))
@@ -27,13 +29,13 @@ public static class Faction
                     transphobic
                         ? GADefOf.Transgender_Person_Joined_Negative
                         : GADefOf.Transgender_Person_Joined_Positive, joinerPawn);
-            }
-            else
-            {
-                var cisphobic = pawn.story?.traits?.HasTrait(GADefOf.Cisphobic) ?? false;
-                if (!cisphobic)
-                    continue;
-                pawn.needs.mood.thoughts.memories.TryGainMemory(GADefOf.Cisgender_Person_Joined, joinerPawn);
+            // }
+            // else
+            // {
+            //     var cisphobic = pawn.story?.traits?.HasTrait(GADefOf.Cisphobic) ?? false;
+            //     if (!cisphobic)
+            //         continue;
+            //     pawn.needs.mood.thoughts.memories.TryGainMemory(GADefOf.Cisgender_Person_Joined, joinerPawn);
             }
         }
     }

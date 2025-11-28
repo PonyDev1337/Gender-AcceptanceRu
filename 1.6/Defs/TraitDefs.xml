@@ -19,6 +19,7 @@
     </TraitDef>
     <TraitDef>
         <defName>Cisphobic</defName>
+        <commonality>0.5</commonality>
         <label>cisphobic</label>
         <degreeDatas>
             <li>

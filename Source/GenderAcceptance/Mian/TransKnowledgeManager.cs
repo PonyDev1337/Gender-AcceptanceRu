@@ -91,7 +91,7 @@ public static class TransKnowledgeManager
         }
 
         if (cleanReferences)
-            pawns?.RemoveAll(tracker => tracker.Pawn.Discarded);
+            pawns?.RemoveAll(tracker => tracker.Pawn?.Discarded ?? false);
         return pawns;
     }
 
