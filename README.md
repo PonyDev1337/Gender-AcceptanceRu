@@ -36,6 +36,8 @@ If your mod adds compatibilities to Topic of Gender, please inform me so I can a
 - Intimacy - A Lovin' Expansion
 - Rimpsyche
 
+If you made a transgender mod and personally made compatibility with this mod yourself (Look at this [link](https://github.com/MianReplicate/Gender-Acceptance/blob/master/Source/GenderAcceptance/Mian/Dependencies/TransDependencies.cs) for information on how to add your own), please let me know so I can add it to this list!
+
 ## FAQ ❓
 - Will you add compatibility with this other transgender mod?
   - Suggest it and I can look into it!
