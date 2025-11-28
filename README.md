@@ -25,6 +25,8 @@ Either: These transgender mods **can** work together as one package, but can als
 - Simple Trans (Solo)
 - Identity: Dysphoria & Intimacy - Gender Works (Either)
 
+The reason why Dysphoria and Gender Works can be used together is that they focus on different aspects of one's gender and sex. Dysphoria focuses on the gender portion with gender dysphoria. Gender Works is a somewhat misleading title as it actually only adds reproductives and genitalia, having nothing to do with gender.
+
 ## Patches 🔧
 These are mods that have built in patches in Topic of Gender or have patches for Topic of Gender!
 
