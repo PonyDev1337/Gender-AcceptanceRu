@@ -119,9 +119,6 @@ public static class GenderUtility
 
     public static ActualGender GetActualGender(this Pawn pawn)
     {
-        if (pawn.IsEnbyBySexTerm())
-            return ActualGender.Enby;
-
         return TransDependencies.TransLibrary.GetActualGender(pawn);
     }
 
@@ -174,6 +171,9 @@ public static class GenderUtility
     /// <returns>The gendered points for the pawn</returns>
     public static float GetGenderedPoints(this Pawn pawn)
     {
+        if(!pawn.RaceProps.Humanlike)
+            throw new ArgumentException($"{pawn.Name} must be humanlike to get gendered points!");
+        
         return TransDependencies.TransLibrary.GetGenderedPoints(pawn);
     }
 
@@ -199,9 +199,9 @@ public static class GenderUtility
     {
         var points = pawn.GetGenderedPoints();
 
-        if (pawn.gender == Gender.Male)
+        if (pawn.GetActualGender() == ActualGender.Man)
             return points;
-        if (pawn.gender == Gender.Female)
+        if (pawn.GetActualGender() == ActualGender.Woman)
         {
             if (points < 0)
                 return Math.Abs(points);

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GenderAcceptance.Mian.Utilities;
 using RimWorld;
 using Verse;
 
@@ -9,6 +10,9 @@ public abstract class TransDependency : ITransDependency
 {
     public virtual ActualGender GetActualGender(Pawn pawn)
     {
+        if (pawn.IsEnbyBySexTerm())
+            return ActualGender.Enby;
+        
         return pawn.gender == Gender.Male ? ActualGender.Man : ActualGender.Woman;
     }
     public abstract GenderIdentity GetCurrentIdentity(Pawn pawn);

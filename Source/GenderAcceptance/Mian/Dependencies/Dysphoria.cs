@@ -34,7 +34,7 @@ public class Dysphoria : TransDependency
             if (traits.HasTrait(DefOfDysphoria.femaleGender))
                 return ActualGender.Woman;
             if (traits.HasTrait(DefOfDysphoria.androgyneGender))
-                return ActualGender.Enby;   
+                return ActualGender.Enby;
         }
 
         return base.GetActualGender(pawn);
