@@ -32,9 +32,6 @@ public class Need_Chaser : Need
     {
         threshPercents = new List<float>(Thresholds);
     }
-
-    public override bool ShowOnNeedList => !Disabled;
-
     public override int GUIChangeArrow => IsFrozen ? 0 : !GainingNeed ? -1 : 1;
     private bool GainingNeed => Find.TickManager.TicksGame < lastGainTick + 15;
 
@@ -42,8 +39,6 @@ public class Need_Chaser : Need
     {
         get
         {
-            if (Disabled)
-                return ChaserCategory.Inactive;
             if (CurLevel > (double)Thresholds[0])
                 return ChaserCategory.JustHadIntimacy;
             if (CurLevel > (double)Thresholds[1])
@@ -77,9 +72,7 @@ public class Need_Chaser : Need
             }
         }
     }
-
-    private bool Disabled => pawn.Dead || (!pawn.story?.traits?.HasTrait(GADefOf.Chaser) ?? false);
-
+    
     public override void SetInitialLevel()
     {
         CurLevel = Rand.Range(0.7f, 1f);
@@ -105,15 +98,8 @@ public class Need_Chaser : Need
 
     public override void NeedInterval()
     {
-        if (Disabled)
-        {
-            CurLevel = 1f;
-        }
-        else
-        {
-            if (IsFrozen)
-                return;
-            CurLevel -= FallPerInterval;
-        }
+        if (IsFrozen)
+            return;
+        CurLevel -= FallPerInterval;
     }
 }

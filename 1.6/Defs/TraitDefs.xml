@@ -7,6 +7,9 @@
             <li>
                 <label>chaser</label>
                 <description>[PAWN_nameDef] desires to get closer to transgender individuals to fulfil their dark desires.</description>
+                <enablesNeeds>
+                    <li>Need_Chaser</li>
+                </enablesNeeds>
             </li>
         </degreeDatas>
         <conflictingTraits>

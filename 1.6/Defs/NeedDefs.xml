@@ -9,5 +9,6 @@
         <freezeInMentalState>true</freezeInMentalState>
         <showForCaravanMembers>false</showForCaravanMembers>
         <developmentalStageFilter>Adult</developmentalStageFilter>
+        <onlyIfCausedByTrait>true</onlyIfCausedByTrait>
     </NeedDef>
 </Defs>
