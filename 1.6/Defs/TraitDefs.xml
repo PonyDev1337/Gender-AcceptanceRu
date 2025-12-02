@@ -19,6 +19,11 @@
             <li MayRequire="divinederivative.romance">HomoAce</li>
             <li MayRequire="divinederivative.romance">BiAce</li>
         </conflictingTraits>
+        <modExtensions>
+            <li MayRequire="lovelydovey.sex.witheuterpe" Class="LoveyDoveySexWithEuterpe.IntimacyModExtension">
+                <isNeedy>true</isNeedy>
+            </li>
+        </modExtensions>
     </TraitDef>
     <TraitDef>
         <defName>Cisphobic</defName>
