@@ -9,9 +9,9 @@ public class SimpleTrans : TransDependency
 
     public override GenderIdentity GetCurrentIdentity(Pawn pawn)
     {
-        if (pawn.health?.hediffSet?.HasHediff(SimpleTransPregnancyUtility.transDef) ?? false)
+        if (pawn.health?.hediffSet?.HasHediff(SimpleTransHediffs.transDef) ?? false)
             return GenderIdentity.Transgender;
-        if (pawn.health?.hediffSet?.HasHediff(SimpleTransPregnancyUtility.cisDef) ?? false)
+        if (pawn.health?.hediffSet?.HasHediff(SimpleTransHediffs.cisDef) ?? false)
             return GenderIdentity.Cisgender;
         return GenderIdentity.Cisgender;
     }
@@ -19,8 +19,8 @@ public class SimpleTrans : TransDependency
     public override bool AppearsToHaveMatchingGenitalia(Pawn pawn)
     {
         return (pawn.GetGenderedAppearance() == Gendered.Masculine &&
-                pawn.health.hediffSet.HasHediff(SimpleTransPregnancyUtility.canSireDef))
+                pawn.health.hediffSet.HasHediff(SimpleTransHediffs.canSireDef))
                || (pawn.GetGenderedAppearance() == Gendered.Feminine &&
-                   pawn.health.hediffSet.HasHediff(SimpleTransPregnancyUtility.canCarryDef));
+                   pawn.health.hediffSet.HasHediff(SimpleTransHediffs.canCarryDef));
     }
 }

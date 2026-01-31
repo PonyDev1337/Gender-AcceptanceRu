@@ -36,28 +36,33 @@ public static class GenderUtility
     }
 
     /// <summary>
-    ///     Makes a status log of what makes a pawn transphobic towards another
+    ///     Makes a status log of what makes a pawn transphobic towards another. Non-humanlike pawns cannot be considered transphobic.
     /// </summary>
     /// <param name="pawn">The pawn to check for transphobia</param>
     /// <param name="recipient">The receiver</param>
     /// <returns>The status of the pawn's transphobia to another</returns>    
     public static TransphobicStatus GetTransphobicStatus(this Pawn pawn, Pawn recipient = null)
     {
-        var chaser = recipient != null
-            ? FindsExtraordinarilyAttractive(pawn, recipient)
-            : pawn.story?.traits?.HasTrait(GADefOf.Chaser) ?? false;
-        var transphobicTrait = pawn.story?.traits?.HasTrait(GADefOf.Transphobic) ?? false;
-        var transphobicPrecept = pawn.GetCurrentIdentity() == GenderIdentity.Cisgender
-                                 && (pawn.CultureOpinionOnTrans() == CultureViewOnTrans.Despised ||
-                                     pawn.CultureOpinionOnTrans() == CultureViewOnTrans.Abhorrent);
-
-        return new TransphobicStatus
+        if (pawn?.RaceProps?.Humanlike ?? false)
         {
-            GenerallyTransphobic = chaser || transphobicTrait || transphobicPrecept,
-            ChaserAttributeCounts = chaser,
-            HasTransphobicTrait = transphobicTrait,
-            TransphobicPreceptCounts = transphobicPrecept
-        };
+            var chaser = recipient != null
+                ? FindsExtraordinarilyAttractive(pawn, recipient)
+                : pawn.story?.traits?.HasTrait(GADefOf.Chaser) ?? false;
+            var transphobicTrait = pawn.story?.traits?.HasTrait(GADefOf.Transphobic) ?? false;
+            var transphobicPrecept = pawn.GetCurrentIdentity() == GenderIdentity.Cisgender
+                                     && (pawn.CultureOpinionOnTrans() == CultureViewOnTrans.Despised ||
+                                         pawn.CultureOpinionOnTrans() == CultureViewOnTrans.Abhorrent);
+
+            return new TransphobicStatus
+            {
+                GenerallyTransphobic = chaser || transphobicTrait || transphobicPrecept,
+                ChaserAttributeCounts = chaser,
+                HasTransphobicTrait = transphobicTrait,
+                TransphobicPreceptCounts = transphobicPrecept
+            };   
+        }
+
+        return new TransphobicStatus();
     }
 
     /// <summary>
@@ -136,7 +141,7 @@ public static class GenderUtility
     }
 
     /// <summary>
-    ///     Gets the gendered appearance for a gender
+    ///     Gets the gendered appearance for a gender (This might be altered in the future to be more complex based on different cultures)
     /// </summary>
     /// <param name="gender">The gender to check</param>
     /// <returns>The gendered appearance for the gender</returns>
