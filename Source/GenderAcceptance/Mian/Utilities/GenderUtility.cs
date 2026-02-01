@@ -122,6 +122,11 @@ public static class GenderUtility
         return TransDependencies.TransLibrary.GetCurrentIdentity(pawn);
     }
 
+    /// <summary>
+    ///     Gets the pawn's gender identity (not their sex)
+    /// </summary>
+    /// <param name="pawn">The pawn</param>
+    /// <returns>The pawn's gender identity</returns>
     public static ActualGender GetActualGender(this Pawn pawn)
     {
         return TransDependencies.TransLibrary.GetActualGender(pawn);
