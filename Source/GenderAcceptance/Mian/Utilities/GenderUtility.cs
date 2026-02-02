@@ -116,7 +116,7 @@ public static class GenderUtility
     /// <returns>The pawn's gender identity</returns>
     public static GenderIdentity GetCurrentIdentity(this Pawn pawn)
     {
-        if (pawn.IsEnbyBySexTerm())
+        if (pawn.IsEnby())
             return GenderIdentity.Transgender; // nonbinary moment?
 
         return TransDependencies.TransLibrary.GetCurrentIdentity(pawn);
@@ -193,9 +193,19 @@ public static class GenderUtility
     /// <param name="pawn">The pawn to check</param>
     /// <returns>Whether a pawn is enby or not</returns>
 
-    public static bool IsEnbyBySexTerm(this Pawn pawn)
+    private static bool IsEnbyBySexTerm(this Pawn pawn)
     {
         return pawn.gender != Gender.Male && pawn.gender != Gender.Female;
+    }
+
+    /// <summary>
+    /// Checks for whether a pawn is enby or not. This is a method meant to be patched by other mods that may add their own enby pawn variants
+    /// </summary>
+    /// <param name="pawn">The pawn to check</param>
+    /// <returns>Whether a pawn is enby or not</returns>
+    public static bool IsEnby(this Pawn pawn)
+    {
+        return pawn.IsEnbyBySexTerm(); // A catch-all for any enby mods that might add a third sex
     }
 
     /// <summary>

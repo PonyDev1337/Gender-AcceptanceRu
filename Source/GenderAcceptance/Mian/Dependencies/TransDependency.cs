@@ -10,7 +10,7 @@ public abstract class TransDependency : ITransDependency
 {
     public virtual ActualGender GetActualGender(Pawn pawn)
     {
-        if (pawn.IsEnbyBySexTerm())
+        if (pawn.IsEnby())
             return ActualGender.Enby;
         
         return pawn.gender == Gender.Male ? ActualGender.Man : ActualGender.Woman;
