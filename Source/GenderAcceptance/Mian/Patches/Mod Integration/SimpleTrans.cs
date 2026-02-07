@@ -22,7 +22,7 @@ public static class SimpleTrans
     public static bool CanEverSpectate(RitualRoleAssignments __instance, Pawn pawn, ref bool __result)
     {
         var transphobic = pawn.GetTransphobicStatus();
-        if (__instance.Ritual.behavior is RitualBehaviorWorker_GenderAffirmParty && transphobic.GenerallyTransphobic)
+        if (__instance.Ritual?.behavior is RitualBehaviorWorker_GenderAffirmParty && transphobic.GenerallyTransphobic)
         {
             __result = false;
             return false;
