@@ -48,6 +48,7 @@ public class GenderAcceptance : Mod
     public GenderAcceptance(ModContentPack content) : base(content)
     {
         GASettings.Instance = GetSettings<GASettings>();
+        Constants.Version = content.ModMetaData.ModVersion;
     }
 
     public override void DoSettingsWindowContents(Rect inRect)

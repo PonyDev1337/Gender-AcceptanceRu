@@ -2,11 +2,11 @@
 
 namespace GenderAcceptance.Mian.Utilities;
 
-public static class Constants
+public class Constants
 {
-    public const string Version = "1.1";
+    public static string Version;
 
-    public static readonly List<string> WarnOnVersion = new()
+    public static readonly List<string> WarnOnUpdateToVersion = new()
     {
         "1.1"
     };

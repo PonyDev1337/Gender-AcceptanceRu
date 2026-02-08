@@ -23,7 +23,7 @@ public class VersionTracker : GameComponent
         {
             lastLaunchedVersion = Constants.Version;
             
-            if(Constants.WarnOnVersion.Contains(lastLaunchedVersion))
+            if(Constants.WarnOnUpdateToVersion.Contains(lastLaunchedVersion))
                 Find.LetterStack.ReceiveLetter("GA.VersionUpdate".Translate(), "GA.VersionUpdateMain".Translate(), LetterDefOf.NegativeEvent);
         }
     }
