@@ -21,7 +21,11 @@ public static class Startup
         var harmony = new Harmony("rimworld.mian.genderacceptance");
         harmony.PatchAll();
 
-        if (ModsConfig.IsActive("divinederivative.romance")) WayBetterRomance.Patch(harmony);
+        if (ModsConfig.IsActive("divinederivative.romance"))
+        {
+            WayBetterRomance.Patch(harmony);
+            Constants.WBREnabled = true;
+        }
 
         if (ModsConfig.IsActive("lovelydovey.sex.witheuterpe")) IntimacyLovin.Patch(harmony);
 

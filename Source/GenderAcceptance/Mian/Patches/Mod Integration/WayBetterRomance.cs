@@ -13,9 +13,6 @@ public static class WayBetterRomance
 {
     public static void Patch(Harmony harmony)
     {
-        // The following patches replace ldfld gender lines with a call to get perceived gender instead so that the transphobia trait will work properly
-        // (transphobic people don't believe trans people are the gender they say they are)
-
         // Adds the chaser factor tooltip to the hookup menu
         harmony.Patch(typeof(HookupUtility).GetMethod(nameof(HookupUtility.HookupFactors)),
             transpiler: typeof(WayBetterRomance).GetMethod(nameof(AddChaserFactorToHookup)));

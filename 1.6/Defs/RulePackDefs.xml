@@ -6,7 +6,8 @@
         <rulePack>
             <rulesStrings>
                 <li>r_logentry->[INITIATOR_nameDef] believes that [RECIPIENT_nameDef] may be transgender.\n\n[what_happened].</li>
-                
+                <li>r_logentry->[INITIATOR_nameDef] thinks [INITIATOR_pronoun] clocked [RECIPIENT_nameDef].\n\n[what_happened].</li>
+
                 <li>what_happened(didSex==false,cameOut==false)->[random_event]</li>
                 <li>what_happened(didSex==false,cameOut==false)->[INITIATOR_nameDef] used [INITIATOR_possessive] [AdjectiveAny] transvestigating psychic powers and [random_event]</li>
                 <li>what_happened(didSex==true,cameOut==false)->During their lovin' session, [sex_event]</li>
@@ -19,20 +20,47 @@
                 <li>comeOutPost(isPositive==false)->[INITIATOR_nameDef] was shocked and enraged</li>
                 <li>comeOutPost(isPositive==false)->[INITIATOR_nameDef] felt a fit of rage run rampage inside [INITIATOR_objective]self</li>
                 
-                <li>start_sex_event->[INITIATOR_nameDef] thought that</li>
-                <li>start_sex_event->[INITIATOR_nameDef] noticed that</li>
+                <li>start_sex_event->[INITIATOR_nameDef] [thought_verb] that</li>
 
-                <li>sex_event->[start_sex_event] [RECIPIENT_nameDef]'s [sex_characteristic] was of another gender</li>
-                <li>sex_event->[start_sex_event] [RECIPIENT_nameDef] did not love [INITIATOR_objective] like a [RECIPIENT_gender] would</li>
-                <li>sex_event->[start_sex_event] [RECIPIENT_nameDef] [other_sex_verb] too much like a [RECIPIENT_otherGender]</li>
+                <li>sex_event->[start_sex_event] [RECIPIENT_nameDef]'s [sex_characteristic] was inconsistent with their gender</li>
+                <li>sex_event->[INITIATOR_nameDef]'s transdar went [goofy_aww_verb] [goofy_aww_verb] [goofy_aww_verb]</li>
+                <li>sex_event(isHomo=true,p=1)->[INITIATOR_nameDef]'s gaydar whispered to [INITIATOR_possessive] that [INITIATOR_pronoun] was [sex_verb] a transgender person</li>
+                <li>sex_event(isHomo=true,p=1)->[INITIATOR_nameDef]'s gay-ass whispered to [INITIATOR_possessive] that [INITIATOR_pronoun] was [sex_verb] a transgender person</li>
+                <li>sex_event(internalTransphobia==false)->[INITIATOR_nameDef] couldn't shake off the feeling that she was [sex_verb] a transgender person. Not that [INITIATOR_pronoun] had a problem with it anyways</li>
 
-                <li>sex_event->[INITIATOR_nameDef] felt too good for [RECIPIENT_nameDef] to be a [RECIPIENT_gender]</li>
-                <li>sex_event->[INITIATOR_nameDef] was [sex_verb] by [RECIPIENT_nameDef] too much for [RECIPIENT_objective] to be a [RECIPIENT_gender]</li>
+                <li>sex_event->[INITIATOR_nameDef] swore [INITIATOR_pronoun] saw surgery scars</li>
                 
-                <li>sex_verb->bottomed</li>
-                <li>sex_verb->topped</li>
-                <li>sex_verb->plopped</li>
-                <li>sex_verb->slammed</li>
+                <li>sex_event(isTransgender==true,p=5)->[INITIATOR_nameDef]'s transdar went [goofy_aww_verb] [goofy_aww_verb] [goofy_aww_verb]</li>
+                <li>sex_event(isTransgender==true)->[RECIPIENT_nameDef]'s terminology seemed familiar and intimate</li>
+                <li>sex_event(isTransgender==true)->[RECIPIENT_nameDef]'s mannerisms and clothing choices seemed familiar</li>
+                
+                <li>sex_event(internalTransphobia==true)->[start_sex_event] [RECIPIENT_nameDef] did not love [INITIATOR_objective] like a [RECIPIENT_gender] would</li>
+                <li>sex_event(internalTransphobia==true)->[start_sex_event] [RECIPIENT_nameDef] [other_sex_verb] too much like a [RECIPIENT_otherGender]</li>
+                <li>sex_event(internalTransphobia==true)->[INITIATOR_nameDef] felt too good for [RECIPIENT_nameDef] to be a [RECIPIENT_gender]</li>
+                <li>sex_event(internalTransphobia==true)->[INITIATOR_nameDef] was [sex_verb_post] by [RECIPIENT_nameDef] too much for [RECIPIENT_objective] to be a [RECIPIENT_gender]</li>
+                
+                <li>thought_verb->thought</li>
+                <li>thought_verb->realized</li>
+                <li>thought_verb->noticed</li>
+                
+                <li>goofy_aww_verb->ding</li>
+                <li>goofy_aww_verb->smack</li>
+                <li>goofy_aww_verb->bong</li>
+                <li>goofy_aww_verb->boopity</li>
+                <li>goofy_aww_verb->doo</li>
+                <li>goofy_aww_verb->hi-yah</li>
+                
+                <li>sex_verb->plowing</li>
+                <li>sex_verb->bottoming</li>
+                <li>sex_verb->topping</li>
+                <li>sex_verb->slamming</li>
+                <li>sex_verb->plopping</li>
+
+                <li>sex_verb_post->bottomed</li>
+                <li>sex_verb_post->topped</li>
+                <li>sex_verb_post->plopped</li>
+                <li>sex_verb_post->plowed</li>
+                <li>sex_verb_post->slammed</li>
                 
                 <li>other_sex_verb->moaned</li>
                 <li>other_sex_verb->cried</li>
@@ -40,8 +68,10 @@
                 <li>other_sex_verb->groaned</li>
 
                 <li>sex_characteristic(mismatchedGenitalia==true,p=2)->genitalia</li>
+                <li>sex_characteristic->voice</li>
                 <li>sex_characteristic->[PersonalCharacteristic]</li>
                 
+<!--                random events run from transvestigating, which does not run when a pawn is not generally transphobic-->
                 <li>random_event->[INITIATOR_pronoun] thought [RECIPIENT_nameDef] looked too [appearance]</li>
                 <li>random_event(transvestigate==true)->[INITIATOR_nameDef] investigated [RECIPIENT_nameDef] doing something naughty using their [AdjectiveAny] [PersonalCharacteristic]. It seemed like something a [AdjectiveAny] [RECIPIENT_otherGender] would do</li>
                 <li>random_event->[INITIATOR_nameDef] spotted [RECIPIENT_nameDef]'s [AdjectiveAny] [PersonalCharacteristic] and thought it looked too much like what a [AdjectiveAny] [RECIPIENT_otherGender] would do</li>

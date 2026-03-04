@@ -49,15 +49,18 @@ public static class TransKnowledgeManager
 {
     public const string DEFAULT_LETTER_LABEL = "GA.PawnBelievesOtherPawnIsTransLabel";
 
-    private static readonly Dictionary<string, string> defaultConstants =
+    private static readonly Dictionary<string, Func<Pawn, Pawn, bool>> defaultConstants =
         new()
         {
-            { "didSex", "False" },
-            { "cameOut", "False" },
-            { "mismatchedGenitalia", "False" },
-            { "transvestigate", "False" },
-            { "hasAppearance", "False" },
-            { "isPositive", "False" }
+            { "didSex", (_, _) => false },
+            { "cameOut", (_, _) => false },
+            { "mismatchedGenitalia", (_, recipient) => !recipient.AppearsToHaveMatchingGenitalia() },
+            { "transvestigate", (_, _) => false },
+            { "hasAppearance", (_, _) => false },
+            { "isPositive", (_, _) => false },
+            { "internalTransphobia", (pawn, _) => pawn.GetTransphobicStatus().GenerallyTransphobic},
+            { "isTransgender", (pawn, _) => pawn.GetCurrentIdentity() == GenderIdentity.Transgender},
+            { "isHomo", (pawn, _) => pawn.LikesSameGender()}
         };
 
     private static readonly Dictionary<Pawn, List<TransKnowledgeTracker>> believedToBeTransgender = new();
@@ -128,10 +131,10 @@ public static class TransKnowledgeManager
                 var request = new GrammarRequest();
 
                 if (constants == null)
-                    constants = defaultConstants;
+                    constants = defaultConstants.ToDictionary(pair => pair.Key, pair => pair.Value.Invoke(pawn, otherPawn).ToString());
                 else
                     constants.AddRange(defaultConstants.Where(constant => !constants.ContainsKey(constant.Key))
-                        .ToDictionary(pair => pair.Key, pair => pair.Value));
+                        .ToDictionary(pair => pair.Key, pair => pair.Value.Invoke(pawn, otherPawn).ToString()));
 
                 var mainDef = GADefOf.Believes_Is_Trans;
                 var text = "";

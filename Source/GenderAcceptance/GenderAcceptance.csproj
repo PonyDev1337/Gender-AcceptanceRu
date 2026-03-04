@@ -121,7 +121,9 @@
     <Compile Include="Mian\Utilities\Constants.cs" />
     <Compile Include="Mian\Utilities\GenderUtility.cs" />
     <Compile Include="Mian\Utilities\Helper.cs" />
+    <Compile Include="Mian\Utilities\SexualityUtility.cs" />
     <Compile Include="Mian\Utilities\TransvestigateUtility.cs" />
+    <Compile Include="Mian\Utilities\WBRUtility.cs" />
     <Compile Include="Mian\Verbs\Transvestigate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
