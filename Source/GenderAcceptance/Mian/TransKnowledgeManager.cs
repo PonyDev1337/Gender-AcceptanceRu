@@ -54,13 +54,9 @@ public static class TransKnowledgeManager
         {
             { "didSex", (_, _) => false },
             { "cameOut", (_, _) => false },
-            { "mismatchedGenitalia", (_, recipient) => !recipient.AppearsToHaveMatchingGenitalia() },
             { "transvestigate", (_, _) => false },
             { "hasAppearance", (_, _) => false },
-            { "isPositive", (_, _) => false },
-            { "internalTransphobia", (pawn, _) => pawn.GetTransphobicStatus().GenerallyTransphobic},
-            { "isTransgender", (pawn, _) => pawn.GetCurrentIdentity() == GenderIdentity.Transgender},
-            { "isHomo", (pawn, _) => pawn.LikesSameGender()}
+            { "isPositive", (_, _) => false }
         };
 
     private static readonly Dictionary<Pawn, List<TransKnowledgeTracker>> believedToBeTransgender = new();

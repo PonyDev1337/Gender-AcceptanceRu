@@ -24,20 +24,20 @@
 
                 <li>sex_event->[start_sex_event] [RECIPIENT_nameDef]'s [sex_characteristic] was inconsistent with their gender</li>
                 <li>sex_event->[INITIATOR_nameDef]'s transdar went [goofy_aww_verb] [goofy_aww_verb] [goofy_aww_verb]</li>
-                <li>sex_event(isHomo=true,p=1)->[INITIATOR_nameDef]'s gaydar whispered to [INITIATOR_possessive] that [INITIATOR_pronoun] was [sex_verb] a transgender person</li>
-                <li>sex_event(isHomo=true,p=1)->[INITIATOR_nameDef]'s gay-ass whispered to [INITIATOR_possessive] that [INITIATOR_pronoun] was [sex_verb] a transgender person</li>
-                <li>sex_event(internalTransphobia==false)->[INITIATOR_nameDef] couldn't shake off the feeling that she was [sex_verb] a transgender person. Not that [INITIATOR_pronoun] had a problem with it anyways</li>
+                <li>sex_event(INITIATOR_isHomo==true,p=1)->[INITIATOR_nameDef]'s gaydar whispered to [INITIATOR_possessive] that [INITIATOR_pronoun] was [sex_verb] a transgender person</li>
+                <li>sex_event(INITIATOR_isHomo==true,p=1)->[INITIATOR_nameDef]'s gay-ass whispered to [INITIATOR_possessive] that [INITIATOR_pronoun] was [sex_verb] a transgender person</li>
+                <li>sex_event->[INITIATOR_nameDef] couldn't shake off the feeling that she was [sex_verb] a transgender person</li>
 
                 <li>sex_event->[INITIATOR_nameDef] swore [INITIATOR_pronoun] saw surgery scars</li>
                 
-                <li>sex_event(isTransgender==true,p=5)->[INITIATOR_nameDef]'s transdar went [goofy_aww_verb] [goofy_aww_verb] [goofy_aww_verb]</li>
-                <li>sex_event(isTransgender==true)->[RECIPIENT_nameDef]'s terminology seemed familiar and intimate</li>
-                <li>sex_event(isTransgender==true)->[RECIPIENT_nameDef]'s mannerisms and clothing choices seemed familiar</li>
+                <li>sex_event(INITIATOR_isTransgender==true,p=5)->[INITIATOR_nameDef]'s transdar went [goofy_aww_verb] [goofy_aww_verb] [goofy_aww_verb]</li>
+                <li>sex_event(INITIATOR_isTransgender==true)->[RECIPIENT_nameDef]'s terminology seemed familiar and intimate</li>
+                <li>sex_event(INITIATOR_isTransgender==true)->[RECIPIENT_nameDef]'s mannerisms and clothing choices seemed familiar</li>
                 
-                <li>sex_event(internalTransphobia==true)->[start_sex_event] [RECIPIENT_nameDef] did not love [INITIATOR_objective] like a [RECIPIENT_gender] would</li>
-                <li>sex_event(internalTransphobia==true)->[start_sex_event] [RECIPIENT_nameDef] [other_sex_verb] too much like a [RECIPIENT_otherGender]</li>
-                <li>sex_event(internalTransphobia==true)->[INITIATOR_nameDef] felt too good for [RECIPIENT_nameDef] to be a [RECIPIENT_gender]</li>
-                <li>sex_event(internalTransphobia==true)->[INITIATOR_nameDef] was [sex_verb_post] by [RECIPIENT_nameDef] too much for [RECIPIENT_objective] to be a [RECIPIENT_gender]</li>
+                <li>sex_event(INITIATOR_isTransphobic==true)->[start_sex_event] [RECIPIENT_nameDef] did not love [INITIATOR_objective] like a [RECIPIENT_gender] would</li>
+                <li>sex_event(INITIATOR_isTransphobic==true)->[start_sex_event] [RECIPIENT_nameDef] [other_sex_verb] too much like a [RECIPIENT_otherGender]</li>
+                <li>sex_event(INITIATOR_isTransphobic==true)->[INITIATOR_nameDef] felt too good for [RECIPIENT_nameDef] to be a [RECIPIENT_gender]</li>
+                <li>sex_event(INITIATOR_isTransphobic==true)->[INITIATOR_nameDef] was [sex_verb_post] by [RECIPIENT_nameDef] too much for [RECIPIENT_objective] to be a [RECIPIENT_gender]</li>
                 
                 <li>thought_verb->thought</li>
                 <li>thought_verb->realized</li>
@@ -67,11 +67,10 @@
                 <li>other_sex_verb->peed</li>
                 <li>other_sex_verb->groaned</li>
 
-                <li>sex_characteristic(mismatchedGenitalia==true,p=2)->genitalia</li>
+                <li>sex_characteristic(RECIPIENT_mismatchedGenitalia==true,p=2)->genitalia</li>
                 <li>sex_characteristic->voice</li>
                 <li>sex_characteristic->[PersonalCharacteristic]</li>
                 
-<!--                random events run from transvestigating, which does not run when a pawn is not generally transphobic-->
                 <li>random_event->[INITIATOR_pronoun] thought [RECIPIENT_nameDef] looked too [appearance]</li>
                 <li>random_event(transvestigate==true)->[INITIATOR_nameDef] investigated [RECIPIENT_nameDef] doing something naughty using their [AdjectiveAny] [PersonalCharacteristic]. It seemed like something a [AdjectiveAny] [RECIPIENT_otherGender] would do</li>
                 <li>random_event->[INITIATOR_nameDef] spotted [RECIPIENT_nameDef]'s [AdjectiveAny] [PersonalCharacteristic] and thought it looked too much like what a [AdjectiveAny] [RECIPIENT_otherGender] would do</li>
@@ -129,8 +128,8 @@
             <rulesStrings>
                 <li>r_logentry->\n\n[main].</li>
                 
-                <li>main(INITIATOR_isTransphobic==false)->[accepting].</li>
-                <li>main(INITIATOR_isTransphobic==true)->[transphobic].\n\n[INITIATOR_nameDef] may out [RECIPIENT_nameDef] during chitchats.</li>
+                <li>main(INITIATOR_isTransphobic==false)->[accepting]</li>
+                <li>main(INITIATOR_isTransphobic==true)->[transphobic].\n\n[INITIATOR_nameDef] may out [RECIPIENT_nameDef] during chitchats</li>
 
                 <li>accepting->[INITIATOR_nameDef], [friendlyVerb], has no problems with this revelation. [random_acceptance]</li>
                 <li>transphobic->[INITIATOR_nameDef], [enemyVerb], finds this [adverb] [transphobic_talking_point]. [random_transphobic]</li>

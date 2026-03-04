@@ -19,7 +19,14 @@ public static class GrammarUtilityPatch
         if (!pawnSymbol.NullOrEmpty())
             prefix = $"{prefix}{pawnSymbol}_";
 
-        if (constants != null) constants[prefix + "isTransphobic"] = pawn.GetTransphobicStatus().ToString();
+        if (constants != null)
+        {
+            constants[prefix + "isTransphobic"] = pawn.GetTransphobicStatus().GenerallyTransphobic.ToString();
+            constants[prefix + "isTransgender"] = (pawn.GetCurrentIdentity() == GenderIdentity.Transgender).ToString();
+            constants[prefix + "isHomo"] = pawn.LikesSameGender().ToString();
+            constants[prefix + "mismatchedGenitalia"] = (!pawn.AppearsToHaveMatchingGenitalia()).ToString();
+
+        }
 
         foreach (var rule in __result) yield return rule;
 
