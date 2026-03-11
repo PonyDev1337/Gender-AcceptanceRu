@@ -4,7 +4,7 @@
     <!-- Issues-->
     <IssueDef>
         <defName>Transgender</defName>
-        <label>transgender individuals</label>
+        <label>Транс*люди</label>
         <iconPath>GenderAcceptance/UI/Issues/Transgender</iconPath>
     </IssueDef>
 
@@ -12,8 +12,8 @@
     <PreceptDef>
         <defName>Transgender_Adored</defName>
         <issue>Transgender</issue>
-        <label>adored</label>
-        <description>Cherishing transgender people leads to a more diverse and accepting population.</description>
+        <label>восхваляемые</label>
+        <description>Уважение к трансгендерам ведет к большему разнообразию и толерантности.</description>
         <impact>Medium</impact>
         <comps>
             <li Class="PreceptComp_SituationalThought">
@@ -28,8 +28,8 @@
     <PreceptDef>
         <defName>Transgender_Despised</defName>
         <issue>Transgender</issue>
-        <label>despised</label>
-        <description>Valuing traditional norms, transgender individuals are contrary to our community's foundational principles.</description>
+        <label>Презераемые</label>
+        <description>В сответсвие с "традиционными ценностями", трансгендеры противоречат традициям нашего сообщества.</description>
         <impact>Medium</impact>
         <comps>
             <li Class="PreceptComp_SituationalThought">
