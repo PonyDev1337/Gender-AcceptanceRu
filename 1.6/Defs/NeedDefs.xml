@@ -3,7 +3,7 @@
         <defName>Need_Chaser</defName>
         <needClass>GenderAcceptance.Mian.Needs.Need_Chaser</needClass>
         <label>Trans Intimacy</label>
-        <description>Chasers desire some intimacy with a trans person from time to time through social interactions or lovin'. Without a trans person in the colony, they may become extremely unhappy.</description>
+        <description>Чейзеры время от времени испытывают желание близости с транс-людьми через социальные взаимодействия или любовь. Без транс*персон в колонии они могут стать удрученными.</description>
         <minIntelligence>Humanlike</minIntelligence>
         <freezeWhileSleeping>true</freezeWhileSleeping>
         <freezeInMentalState>true</freezeInMentalState>
